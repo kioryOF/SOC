@@ -1,7 +1,6 @@
 package relacoes;
 
 import java.util.ArrayList;
-import static jdk.nashorn.internal.objects.NativeMath.sqrt;
 import modelo.Conjunto;
 import modelo.Elemento;
 import modelo.ParRelacao;
