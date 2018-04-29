@@ -44,7 +44,7 @@ public class LeArquivoTxt {
                 }
                 if (Character.isLowerCase(linha.charAt(0))) {
                     String separada[] = linha.split(" ");
-                    Elemento elemento = new Elemento(separada[2],Integer.parseInt(separada[0]));
+                    Elemento elemento = new Elemento(separada[2],Integer.parseInt(separada[2]));
                     adicionaElemento(elemento);
                 }
             } else {

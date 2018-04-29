@@ -1,5 +1,6 @@
 package operacoes;
 
+import jdk.nashorn.internal.codegen.CompilerConstants;
 import modelo.Conjunto;
 import modelo.Elemento;
 
@@ -32,6 +33,13 @@ public class Operacao {
             }
         }
         if (conjunto1.getElementos().size() == elementosIguais) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean igual(Conjunto conjunto1, Conjunto conjunto2) {
+        if (contidoOuIgual(conjunto1, conjunto2) && contidoOuIgual(conjunto2, conjunto1)) {
             return true;
         }
         return false;

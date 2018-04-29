@@ -3,11 +3,11 @@ package modelo;
 
 public class ParRelacao {
    Elemento elmentoDominio; //esquerda
-   Elemento elmentoImagem; //direita
+   Elemento elmentoContraDominio; //direita
 
-    public ParRelacao(Elemento elmentoDominio, Elemento elmentoImagem) {
+    public ParRelacao(Elemento elmentoDominio, Elemento elmentoContraDominio) {
         this.elmentoDominio = elmentoDominio;
-        this.elmentoImagem = elmentoImagem;
+        this.elmentoContraDominio = elmentoContraDominio;
     }
 
     public Elemento getElmentoDominio() {
@@ -18,12 +18,12 @@ public class ParRelacao {
         this.elmentoDominio = elmentoDominio;
     }
 
-    public Elemento getElmentoImagem() {
-        return elmentoImagem;
+    public Elemento getElmentoContraDominio() {
+        return elmentoContraDominio;
     }
 
-    public void setElmentoImagem(Elemento elmentoImagem) {
-        this.elmentoImagem = elmentoImagem;
+    public void setElmentoContraDominio(Elemento elmentoContraDominio) {
+        this.elmentoContraDominio = elmentoContraDominio;
     }
    
 }

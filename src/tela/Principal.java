@@ -13,7 +13,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import leitorArquivo.LeArquivoTxt;
 import modelo.Conjunto;
 import modelo.Elemento;
+import modelo.ParRelacao;
 import operacoes.Operacao;
+import relacoes.Classificacao;
+import relacoes.Relacao;
 
 /**
  *
@@ -30,6 +33,7 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         jPanelOperacoes.setVisible(false);
+        jPanelRelacoes.setVisible(false);
     }
 
     /**
@@ -61,6 +65,20 @@ public class Principal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButtonOperacoes = new javax.swing.JButton();
+        jPanelRelacoes = new javax.swing.JPanel();
+        jComboBoxConjuntos1 = new javax.swing.JComboBox<>();
+        jComboBoxConjuntos2 = new javax.swing.JComboBox<>();
+        jComboBoxConjuntos3 = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jComboBoxRelacoes1 = new javax.swing.JComboBox<>();
+        jComboBoxRelacoes2 = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jButtonRelacaoAB = new javax.swing.JButton();
+        jButtonRelacaoAC = new javax.swing.JButton();
+        jButtonRelacoes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -167,7 +185,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jButtonPertence, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonProdutoCartesiano)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 58, Short.MAX_VALUE))
             .addGroup(jPanelOperacoesLayout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addGroup(jPanelOperacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,6 +240,116 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("Conjunto A:");
+
+        jLabel5.setText("Conjunto B:");
+
+        jLabel6.setText("Conjunto C:");
+
+        jComboBoxRelacoes1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ">", "<", "=", "^2", "^(1/2)", "Personalizada" }));
+        jComboBoxRelacoes1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxRelacoes1ActionPerformed(evt);
+            }
+        });
+
+        jComboBoxRelacoes2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { ">", "<", "=", "^2", "^(1/2)", "Personalizada" }));
+        jComboBoxRelacoes2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxRelacoes2ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Relação A->B:");
+
+        jLabel8.setText("Relação B->C:");
+
+        jButtonRelacaoAB.setText("Fazer Relação A->B");
+        jButtonRelacaoAB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRelacaoABActionPerformed(evt);
+            }
+        });
+
+        jButtonRelacaoAC.setText("Fazer Relação A->C");
+        jButtonRelacaoAC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRelacaoACActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelRelacoesLayout = new javax.swing.GroupLayout(jPanelRelacoes);
+        jPanelRelacoes.setLayout(jPanelRelacoesLayout);
+        jPanelRelacoesLayout.setHorizontalGroup(
+            jPanelRelacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRelacoesLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addGroup(jPanelRelacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBoxConjuntos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(56, 56, 56)
+                .addGroup(jPanelRelacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBoxRelacoes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addGroup(jPanelRelacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jComboBoxConjuntos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addGroup(jPanelRelacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel8)
+                    .addComponent(jComboBoxRelacoes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
+                .addGroup(jPanelRelacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jComboBoxConjuntos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70))
+            .addGroup(jPanelRelacoesLayout.createSequentialGroup()
+                .addGap(201, 201, 201)
+                .addComponent(jButtonRelacaoAB)
+                .addGap(42, 42, 42)
+                .addComponent(jButtonRelacaoAC)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelRelacoesLayout.setVerticalGroup(
+            jPanelRelacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRelacoesLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jPanelRelacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelRelacoesLayout.createSequentialGroup()
+                        .addGroup(jPanelRelacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel8))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanelRelacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBoxConjuntos3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxRelacoes2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelRelacoesLayout.createSequentialGroup()
+                        .addGroup(jPanelRelacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7))
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanelRelacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBoxConjuntos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxRelacoes1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelRelacoesLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(10, 10, 10)
+                        .addComponent(jComboBoxConjuntos2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(jPanelRelacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonRelacaoAB)
+                    .addComponent(jButtonRelacaoAC))
+                .addGap(33, 33, 33))
+        );
+
+        jButtonRelacoes.setText("Relações");
+        jButtonRelacoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRelacoesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -229,14 +357,17 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonOperacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButtonOperacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonRelacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanelOperacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanelOperacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanelRelacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,9 +377,13 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(41, 41, 41)
-                        .addComponent(jButtonOperacoes))
+                        .addComponent(jButtonOperacoes)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonRelacoes))
                     .addComponent(jPanelOperacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanelRelacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -441,6 +576,240 @@ public class Principal extends javax.swing.JFrame {
         jTextArea.setText(str);
     }//GEN-LAST:event_jButtonProdutoCartesianoActionPerformed
 
+    private void jButtonRelacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRelacoesActionPerformed
+        if (conjuntosGlobal.size() > 0) {
+            for (int j = 0; j < this.conjuntosGlobal.size(); j++) {
+                this.jComboBoxConjuntos1.addItem(this.conjuntosGlobal.get(j).getNome());
+                this.jComboBoxConjuntos2.addItem(this.conjuntosGlobal.get(j).getNome());
+                this.jComboBoxConjuntos3.addItem(this.conjuntosGlobal.get(j).getNome());
+
+            }
+
+            jPanelRelacoes.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Carregue um arquivo antes!");
+        }
+    }//GEN-LAST:event_jButtonRelacoesActionPerformed
+
+    private void jComboBoxRelacoes2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRelacoes2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxRelacoes2ActionPerformed
+
+    private void jButtonRelacaoABActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRelacaoABActionPerformed
+        int opcao = this.jComboBoxRelacoes1.getSelectedIndex();
+        Conjunto conjuntoDominio = pegarConjunto(jComboBoxConjuntos1.getSelectedItem().toString());
+        Conjunto conjuntoContraDominio = pegarConjunto(jComboBoxConjuntos2.getSelectedItem().toString());
+        String str = "Os pares da relação ";
+        ArrayList<ParRelacao> paresRelacao = new ArrayList<>();
+        switch (opcao) {
+            case 0:
+                str += "maior que ";
+
+                paresRelacao = Relacao.maiorQue(conjuntoDominio, conjuntoContraDominio);
+                break;
+            case 1:
+                str += "menor que ";
+                paresRelacao = Relacao.menorQue(conjuntoDominio, conjuntoContraDominio);
+                break;
+            case 2:
+                str += "igual a ";
+                paresRelacao = Relacao.igualA(conjuntoDominio, conjuntoContraDominio);
+                break;
+            case 3:
+                str += "quadrado de ";
+                paresRelacao = Relacao.quadradoDe(conjuntoDominio, conjuntoContraDominio);
+                break;
+            case 4:
+                str += "raiz de ";
+                paresRelacao = Relacao.raizQuadradaDe(conjuntoDominio, conjuntoContraDominio);
+                break;
+            case 5:
+                str += "personalizada ";
+                break;
+        }
+        str += " são:";
+        for (int i = 0; i < paresRelacao.size(); i++) {
+            str += "<" + paresRelacao.get(i).getElmentoDominio().getNome() + "," + paresRelacao.get(i).getElmentoContraDominio().getNome() + ">";
+            if (!(i == paresRelacao.size() - 1)) {
+                str += ", ";
+            }
+            if (i % 5 == 0 && i != 0) {
+                str += "\n";
+            }
+        }
+        str += "\nO seu dominio de definição é: {";
+        Conjunto dominioDefificao = Classificacao.getCnjtDominioDefinicao(paresRelacao);
+        for (int i = 0; i < dominioDefificao.getElementos().size(); i++) {
+            str += dominioDefificao.getElementos().get(i).getNome();
+            if (!(i == dominioDefificao.getElementos().size() - 1)) {
+                str += ", ";
+            }
+        }
+        str += "}\n";
+        str += "\nA sua imagem  é: {";
+        Conjunto imagem = Classificacao.getCnjtImagem(paresRelacao);
+        for (int i = 0; i < imagem.getElementos().size(); i++) {
+            str += imagem.getElementos().get(i).getNome();
+            if (!(i == imagem.getElementos().size() - 1)) {
+                str += ", ";
+            }
+        }
+        str += "}\n";
+        str += "\n A relação é: ";
+        if (Classificacao.isIsomorfismo(conjuntoDominio, conjuntoContraDominio, paresRelacao)) {
+            str += "Isomorfismo";
+        } else {
+            if (Classificacao.isEpimorfismo(conjuntoDominio, conjuntoContraDominio, paresRelacao)) {
+                str += "Epimorfismo";
+            } else {
+                if (Classificacao.isMonomorfismo(conjuntoDominio, conjuntoContraDominio, paresRelacao)) {
+                    str += "Monomorfismo";
+                } else {
+                    if (Classificacao.isInjetora(conjuntoDominio, paresRelacao)) {
+                        str += "Injetora";
+                    } else {
+                        if (Classificacao.isFuncional(conjuntoDominio, paresRelacao)) {
+                            str += "Funcional";
+                        } else {
+                            if (Classificacao.isSobrejetora(conjuntoContraDominio, paresRelacao)) {
+                                str += "Sobrejetora";
+                            } else {
+                                if (Classificacao.isTotal(conjuntoDominio, paresRelacao)) {
+                                    str += "Total";
+                                } else {
+                                    str += "Não possui classificação";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        str += ".";
+        this.jTextArea.setText(str);
+    }//GEN-LAST:event_jButtonRelacaoABActionPerformed
+
+    private void jComboBoxRelacoes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRelacoes1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxRelacoes1ActionPerformed
+
+    private void jButtonRelacaoACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRelacaoACActionPerformed
+        int opcaoAB = this.jComboBoxRelacoes1.getSelectedIndex();
+        Conjunto conjuntoDominioAB = pegarConjunto(jComboBoxConjuntos1.getSelectedItem().toString());
+        Conjunto conjuntoContraDominioAB = pegarConjunto(jComboBoxConjuntos2.getSelectedItem().toString());
+        ArrayList<ParRelacao> paresRelacaoAB = new ArrayList<>();
+        switch (opcaoAB) {
+            case 0:
+                paresRelacaoAB = Relacao.maiorQue(conjuntoDominioAB, conjuntoContraDominioAB);
+                break;
+            case 1:
+                paresRelacaoAB = Relacao.menorQue(conjuntoDominioAB, conjuntoContraDominioAB);
+                break;
+            case 2:
+                paresRelacaoAB = Relacao.igualA(conjuntoDominioAB, conjuntoContraDominioAB);
+                break;
+            case 3:
+                paresRelacaoAB = Relacao.quadradoDe(conjuntoDominioAB, conjuntoContraDominioAB);
+                break;
+            case 4:
+                paresRelacaoAB = Relacao.raizQuadradaDe(conjuntoDominioAB, conjuntoContraDominioAB);
+                break;
+            case 5:
+
+                break;
+        }
+        int opcaoBC = this.jComboBoxRelacoes2.getSelectedIndex();
+        Conjunto conjuntoDominioBC = pegarConjunto(jComboBoxConjuntos2.getSelectedItem().toString());
+        Conjunto conjuntoContraDominioBC = pegarConjunto(jComboBoxConjuntos3.getSelectedItem().toString());
+        ArrayList<ParRelacao> paresRelacaoBC = new ArrayList<>();
+        switch (opcaoBC) {
+            case 0:
+                paresRelacaoBC = Relacao.maiorQue(conjuntoDominioBC, conjuntoContraDominioBC);
+                break;
+            case 1:
+                paresRelacaoBC = Relacao.menorQue(conjuntoDominioBC, conjuntoContraDominioBC);
+                break;
+            case 2:
+                paresRelacaoBC = Relacao.igualA(conjuntoDominioBC, conjuntoContraDominioBC);
+                break;
+            case 3:
+                paresRelacaoBC = Relacao.quadradoDe(conjuntoDominioBC, conjuntoContraDominioBC);
+                break;
+            case 4:
+                paresRelacaoBC = Relacao.raizQuadradaDe(conjuntoDominioBC, conjuntoContraDominioBC);
+                break;
+            case 5:
+
+                break;
+        }
+        Conjunto conjuntoDominioAC = pegarConjunto(jComboBoxConjuntos1.getSelectedItem().toString());
+        Conjunto conjuntoContraDominioAC = pegarConjunto(jComboBoxConjuntos3.getSelectedItem().toString());
+        String str = "Os pares da relação ";
+
+        ArrayList<ParRelacao> paresRelacaoAC = Relacao.relacaoComposta(paresRelacaoAB, paresRelacaoBC);
+        for (int i = 0; i < paresRelacaoAC.size(); i++) {
+            str += "<" + paresRelacaoAC.get(i).getElmentoDominio().getNome() + "," + paresRelacaoAC.get(i).getElmentoContraDominio().getNome() + ">";
+            if (!(i == paresRelacaoAC.size() - 1)) {
+                str += ", ";
+            }
+            if (i % 5 == 0 && i != 0) {
+                str += "\n";
+            }
+        }
+        str += "\nO seu dominio de definição é: {";
+        Conjunto dominioDefificao = Classificacao.getCnjtDominioDefinicao(paresRelacaoAC);
+        for (int i = 0; i < dominioDefificao.getElementos().size(); i++) {
+            str += dominioDefificao.getElementos().get(i).getNome();
+            if (!(i == dominioDefificao.getElementos().size() - 1)) {
+                str += ", ";
+            }
+        }
+        str += "}\n";
+        str += "\nA sua imagem  é: {";
+        Conjunto imagem = Classificacao.getCnjtImagem(paresRelacaoAC);
+        for (int i = 0; i < imagem.getElementos().size(); i++) {
+            str += imagem.getElementos().get(i).getNome();
+            if (!(i == imagem.getElementos().size() - 1)) {
+                str += ", ";
+            }
+        }
+        str += "}\n";
+        str += "\n A relação é: ";
+        if (Classificacao.isIsomorfismo(conjuntoDominioAC, conjuntoContraDominioAC, paresRelacaoAC)) {
+            str += "Isomorfismo";
+        } else {
+            if (Classificacao.isEpimorfismo(conjuntoDominioAC, conjuntoContraDominioAC, paresRelacaoAC)) {
+                str += "Epimorfismo";
+            } else {
+                if (Classificacao.isMonomorfismo(conjuntoDominioAC, conjuntoContraDominioAC, paresRelacaoAC)) {
+                    str += "Monomorfismo";
+                } else {
+                    if (Classificacao.isInjetora(conjuntoDominioAC, paresRelacaoAC)) {
+                        str += "Injetora";
+                    } else {
+                        if (Classificacao.isFuncional(conjuntoDominioAC, paresRelacaoAC)) {
+                            str += "Funcional";
+                        } else {
+                            if (Classificacao.isSobrejetora(conjuntoContraDominioAC, paresRelacaoAC)) {
+                                str += "Sobrejetora";
+                            } else {
+                                if (Classificacao.isTotal(conjuntoDominioAC, paresRelacaoAC)) {
+                                    str += "Total";
+                                } else {
+                                    str += "Não possui classificação";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        str += ".";
+        this.jTextArea.setText(str);
+
+    }//GEN-LAST:event_jButtonRelacaoACActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -487,14 +856,28 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonOperacoes;
     private javax.swing.JButton jButtonPertence;
     private javax.swing.JButton jButtonProdutoCartesiano;
+    private javax.swing.JButton jButtonRelacaoAB;
+    private javax.swing.JButton jButtonRelacaoAC;
+    private javax.swing.JButton jButtonRelacoes;
     private javax.swing.JButton jButtonUniao;
     private javax.swing.JComboBox<String> jComboBoxConjunto1;
     private javax.swing.JComboBox<String> jComboBoxConjunto2;
+    private javax.swing.JComboBox<String> jComboBoxConjuntos1;
+    private javax.swing.JComboBox<String> jComboBoxConjuntos2;
+    private javax.swing.JComboBox<String> jComboBoxConjuntos3;
     private javax.swing.JComboBox<String> jComboBoxElemento;
+    private javax.swing.JComboBox<String> jComboBoxRelacoes1;
+    private javax.swing.JComboBox<String> jComboBoxRelacoes2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanelOperacoes;
+    private javax.swing.JPanel jPanelRelacoes;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea;
     // End of variables declaration//GEN-END:variables
