@@ -10,19 +10,19 @@ public class ParRelacao {
         this.elmentoContraDominio = elmentoContraDominio;
     }
 
-    public Elemento getElmentoDominio() {
+    public Elemento getElementoDominio() {
         return elmentoDominio;
     }
 
-    public void setElmentoDominio(Elemento elmentoDominio) {
+    public void setElementoDominio(Elemento elmentoDominio) {
         this.elmentoDominio = elmentoDominio;
     }
 
-    public Elemento getElmentoContraDominio() {
+    public Elemento getElementoContraDominio() {
         return elmentoContraDominio;
     }
 
-    public void setElmentoContraDominio(Elemento elmentoContraDominio) {
+    public void setElementoContraDominio(Elemento elmentoContraDominio) {
         this.elmentoContraDominio = elmentoContraDominio;
     }
    

@@ -12,7 +12,7 @@ public class Classificacao {
         for (int j = 0; j < dominio.getElementos().size(); j++) {
             int contRelacao = 0;
             for (int i = 0; i < relacao.size(); i++) {
-                if (relacao.get(i).getElmentoDominio().getNome().equals(dominio.getElementos().get(j).getNome())) {
+                if (relacao.get(i).getElementoDominio().getNome().equals(dominio.getElementos().get(j).getNome())) {
                     contRelacao++;
                 }
             }
@@ -27,7 +27,7 @@ public class Classificacao {
         for (int j = 0; j < contraDominio.getElementos().size(); j++) {
             int contRelacao = 0;
             for (int i = 0; i < relacao.size(); i++) {
-                if (relacao.get(i).getElmentoContraDominio().getNome().equals(contraDominio.getElementos().get(j).getNome())) {
+                if (relacao.get(i).getElementoContraDominio().getNome().equals(contraDominio.getElementos().get(j).getNome())) {
                     contRelacao++;
                 }
             }
@@ -78,8 +78,8 @@ public class Classificacao {
    public static Conjunto getCnjtImagem(ArrayList<ParRelacao> relacao) {
         Conjunto cnjtImagem = new Conjunto("imagem");
         for (int i = 0; i < relacao.size(); i++) {
-            if (!Operacao.pertence(cnjtImagem, relacao.get(i).getElmentoContraDominio())) {
-                cnjtImagem.addElemento(relacao.get(i).getElmentoContraDominio());
+            if (!Operacao.pertence(cnjtImagem, relacao.get(i).getElementoContraDominio())) {
+                cnjtImagem.addElemento(relacao.get(i).getElementoContraDominio());
             }
         }
 
@@ -89,8 +89,8 @@ public class Classificacao {
     public static Conjunto getCnjtDominioDefinicao(ArrayList<ParRelacao> relacao) {
         Conjunto cnjtDominioDefinicao = new Conjunto("definicao");
         for (int i = 0; i < relacao.size(); i++) {
-            if (!Operacao.pertence(cnjtDominioDefinicao, relacao.get(i).getElmentoDominio())) {
-                cnjtDominioDefinicao.addElemento(relacao.get(i).getElmentoDominio());
+            if (!Operacao.pertence(cnjtDominioDefinicao, relacao.get(i).getElementoDominio())) {
+                cnjtDominioDefinicao.addElemento(relacao.get(i).getElementoDominio());
             }
         }
 

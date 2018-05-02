@@ -70,10 +70,10 @@ public class Relacao {
     public static ArrayList<ParRelacao> raizQuadradaDe(Conjunto conjuntoDominio, Conjunto conjuntoContraDominio) {
         ArrayList<ParRelacao> pares = quadradoDe(conjuntoContraDominio, conjuntoDominio);
         for (int i = 0; i < pares.size(); i++) {
-            Elemento contraDominioAux = pares.get(i).getElmentoDominio();
-            Elemento dominioAux = pares.get(i).getElmentoContraDominio();
-            pares.get(i).setElmentoDominio(dominioAux);
-            pares.get(i).setElmentoContraDominio(contraDominioAux);
+            Elemento contraDominioAux = pares.get(i).getElementoDominio();
+            Elemento dominioAux = pares.get(i).getElementoContraDominio();
+            pares.get(i).setElementoDominio(dominioAux);
+            pares.get(i).setElementoContraDominio(contraDominioAux);
 
         }
         return pares;
@@ -83,9 +83,24 @@ public class Relacao {
         ArrayList<ParRelacao> composta = new ArrayList<>();
         for (int i = 0; i < AB.size(); i++) {
             for (int j = 0; j < BC.size(); j++) {
-                if (AB.get(i).getElmentoContraDominio().getNome().equals(BC.get(j).getElmentoDominio().getNome())) {
-                    ParRelacao par = new ParRelacao(AB.get(i).getElmentoDominio(), BC.get(j).getElmentoContraDominio());
-                    composta.add(par);
+                if (AB.get(i).getElementoContraDominio().getNome().equals(BC.get(j).getElementoDominio().getNome())) {
+                    if (composta.isEmpty()) {
+                        ParRelacao par = new ParRelacao(AB.get(i).getElementoDominio(), BC.get(j).getElementoContraDominio());
+                        composta.add(par);
+                    } else {
+                        int cont = 0;
+                        for (int k = 0; k < composta.size(); k++) {
+                            if (!composta.get(k).getElementoDominio().getNome().equals(AB.get(i).getElementoDominio().getNome())
+                                    || !composta.get(k).getElementoContraDominio().getNome().equals(BC.get(j).getElementoContraDominio().getNome())) {
+                                cont++;
+                            }
+                        }
+                        if (cont == composta.size()) {
+                            ParRelacao par = new ParRelacao(AB.get(i).getElementoDominio(), BC.get(j).getElementoContraDominio());
+                            composta.add(par);
+                        }
+                    }
+
                 }
             }
         }

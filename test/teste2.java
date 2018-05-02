@@ -74,7 +74,7 @@ public class teste2 {
         String particao1 = linha.substring(linha.indexOf("{") + 1, linha.indexOf("}"));
         String particao2[] = particao1.split(Pattern.quote(", "));
         for (int i = 0; i < particao2.length; i++) {
-            Elemento elemento = new Elemento(particao2[i], particao2[i]);
+            Elemento elemento = new Elemento(particao2[i], Integer.parseInt(particao2[i]));
             if (elementos.size() > 0) {
                 int a = 0;
                 for (int j = 0; j < elementos.size(); j++) {

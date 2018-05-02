@@ -67,7 +67,7 @@ public class TesteLeitura {
                     && Character.isLetter(t[i].charAt(0))
                     && t[i + 1].equals("=")
                     && Character.isDigit(t[i + 2].charAt(0))) {
-                Elemento elemento = new Elemento(t[i], t[i + 2]);
+                Elemento elemento = new Elemento(t[i],Integer.parseInt(t[i + 2]));
                 adicionaElementoGlobal(elemento);
             }
         }
@@ -88,14 +88,14 @@ public class TesteLeitura {
                             && Character.isLowerCase(tudo[j].charAt(0))
                             && tudo[j + 1].equals("=")
                             && Character.isDigit(tudo[j + 2].charAt(0))) {
-                        Elemento elemento = new Elemento(tudo[j], tudo[j + 2]);
+                        Elemento elemento = new Elemento(tudo[j], Integer.parseInt(tudo[j + 2]));
                         i++;
                         if (verificaAdicionaElemento(elemento, elementos)) {
                             elementos.add(elemento);
                         }
                     }
                     if (Character.isDigit(tudo[j].charAt(0))) {
-                        Elemento elemento = new Elemento(tudo[j], tudo[j]);
+                        Elemento elemento = new Elemento(tudo[j], Integer.parseInt(tudo[j]));
                         if (verificaAdicionaElemento(elemento, elementos)) {
                             elementos.add(elemento);
                         }
