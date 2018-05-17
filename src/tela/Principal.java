@@ -661,7 +661,7 @@ public class Principal extends javax.swing.JFrame {
             if (Classificacao.isMonomorfismo(conjuntoDominio, conjuntoContraDominio, paresRelacao)) {
                 str += "  Monomorfismo ";
             }
-            if (Classificacao.isInjetora(conjuntoDominio, paresRelacao)) {
+            if (Classificacao.isInjetora(conjuntoContraDominio, paresRelacao)) {
                 str += "  Injetora ";
             }
             if (Classificacao.isFuncional(conjuntoDominio, paresRelacao)) {
@@ -779,7 +779,7 @@ public class Principal extends javax.swing.JFrame {
             if (Classificacao.isMonomorfismo(conjuntoDominioAC, conjuntoContraDominioAC, paresRelacaoAC)) {
                 str += " Monomorfismo ";
             }
-            if (Classificacao.isInjetora(conjuntoDominioAC, paresRelacaoAC)) {
+            if (Classificacao.isInjetora(conjuntoContraDominioAC, paresRelacaoAC)) {
                 str += " Injetora ";
             }
             if (Classificacao.isFuncional(conjuntoDominioAC, paresRelacaoAC)) {
@@ -940,7 +940,7 @@ public class Principal extends javax.swing.JFrame {
         if (Classificacao.isMonomorfismo(conjuntoDominio, conjuntoContraDominio, paresRelacao)) {
             str += " Monomorfismo ";
         }
-        if (Classificacao.isInjetora(conjuntoDominio, paresRelacao)) {
+        if (Classificacao.isInjetora(conjuntoContraDominio, paresRelacao)) {
             str += " Injetora ";
         }
         if (Classificacao.isFuncional(conjuntoDominio, paresRelacao)) {
@@ -1001,7 +1001,7 @@ public class Principal extends javax.swing.JFrame {
         if (Classificacao.isMonomorfismo(conjuntoDominioAC, conjuntoContraDominioAC, paresRelacaoAC)) {
             str += " Monomorfismo ";
         }
-        if (Classificacao.isInjetora(conjuntoDominioAC, paresRelacaoAC)) {
+        if (Classificacao.isInjetora(conjuntoContraDominioAC, paresRelacaoAC)) {
             str += " Injetora ";
         }
         if (Classificacao.isFuncional(conjuntoDominioAC, paresRelacaoAC)) {
